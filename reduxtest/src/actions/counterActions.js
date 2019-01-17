@@ -1,6 +1,7 @@
 export const INCREMENT_COUNTER = "INCREMENT_COUNTER";
 export const DECREMENT_COUNTER = "DECREMENT_COUNTER";
 export const ADD_COUNTER = "ADD_COUNTER";
+export const COUNTER_ZERO = "COUNTER_ZERO";
 
 export const increaseCounter = counter => {
     return {
@@ -20,6 +21,13 @@ export const decreaseCounter = counter => {
 export const addCounter = counter => {
     return {
         type: "ADD_COUNTER",
+        counter
+    };
+};
+
+export const counterZero = counter => {
+    return {
+        type: "COUNTER_ZERO",
         counter
     };
 };

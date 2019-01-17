@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER, ADD_COUNTER } from '../actions/counterActions';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, ADD_COUNTER, COUNTER_ZERO } from '../actions/counterActions';
 
 const initialState = {
     counter : 7
@@ -18,7 +18,11 @@ function counterReducer(state=initialState, action) {
         };
         case ADD_COUNTER:
         return {
-            counter : state.counter + 1
+            counter : state.counter + 5
+        };
+        case COUNTER_ZERO:
+        return {
+            counter : state.counter = 0
         };
         default:
         return state;

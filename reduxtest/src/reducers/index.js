@@ -2,7 +2,7 @@ import { combineReducers} from 'redux';
 import counter from './counterReducer';
 
 const allReducers = combineReducers({
-     counter,
+     counterNumber : counter
 });
 
 export default allReducers;

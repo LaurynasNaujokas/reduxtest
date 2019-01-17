@@ -1,7 +1,7 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER, ADD_COUNTER, COUNTER_ZERO } from '../actions/counterActions';
 
 const initialState = {
-    counter : 7
+    counter : 0
 };
 
 function counterReducer(state=initialState, action) {

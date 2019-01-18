@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Counter from './containers/counter';
+import PostList from './container/posts';
 
 
 class App extends Component {
   render() {
     return (
-    <div>
-      <Counter  />
-    </div>
+  <div>
+    <h1>Posts</h1>
+    <PostList/>
+  </div>
     );
   }
 }

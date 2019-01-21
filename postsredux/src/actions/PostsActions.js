@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import { FETCH_POSTS } from './actionTypes';
 
+
 const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
 export const fetchPost = (posts) => {
@@ -14,10 +15,11 @@ export const fetchPost = (posts) => {
     return (dispatch) => {
       return Axios.get(apiUrl)
         .then(response => {
-          dispatch(fetchPost(response.data));
+          dispatch(fetchPost(response.data.slice(1, 5)));
         })
         .catch(error => {
           throw(error);
         });
     };
   };
+

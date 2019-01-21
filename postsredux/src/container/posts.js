@@ -1,36 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Post from '../components/Post.js';
+import { postSelectd } from '../actions/PostSelected';
 
 
-function PostList({ posts }) {
-  if(!posts.length) {
+class PostList extends Component {
+renderList(){
+  return this.props.posts.map((post) => {
     return (
-      <div>
-        No Posts
-      </div>
+      <li
+      key={post.id}
+      onClick={() => this.props.postSelectd(post)}>
+      {post.title}
+      </li>
     )
-  }
-  return (
-    <div>
-      {posts.map(post => {
-        return (
-            <Post post={post} key={post._id} />
-        );
-      })}
-    </div>
-  );
+  });
 }
 
+render(){
+  return(
+    <ul>
+      {this.renderList()}
+    </ul>
+  )
+}
+}
 const mapStateToProps = state => {
   return {
     posts: state.posts
   };
-};
+}
+
+function matchDispatchToProps(dispatch){
+
+  return bindActionCreators({postSelectd : postSelectd}, dispatch);
+}
 
 
 
 export default connect(
   mapStateToProps,
+  matchDispatchToProps
 
 )(PostList);

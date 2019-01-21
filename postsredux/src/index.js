@@ -12,6 +12,7 @@ store.dispatch(fetchAllPosts());
 
 
 
+
 ReactDOM.render(
 <Provider store={store}>
     <App />

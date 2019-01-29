@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import PostList from './container/Posts';
 import PostDetailsInfo from './container/PostDetailsPage';
+import { BrowserRouter, Route} from 'react-router-dom';
+import CreatePost from './components/CreatePost';
+import Navigation from './components/Navigation';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
   render() {
     return (
-  <div>
-    <h1>Posts</h1>
-      <PostList  />
-    <h1>Post Details</h1>
-      <PostDetailsInfo  />
-  </div> 
+  <BrowserRouter>
+      <div>
+          <Navigation />
+          <Route path='/' component={PostList} exact  />
+          <Route path='/PostDetailsInfo' component={PostDetailsInfo}/>
+          <Route path='/CreatePost' component={CreatePost}/>
+      </div> 
+  </BrowserRouter>        
     );
   }
 }

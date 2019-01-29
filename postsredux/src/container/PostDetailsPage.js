@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class PostDetailsInfo extends Component {
     render(){
 
         if(!this.props.post) {
-            return (<h2>Select a post</h2>);
+            return (<Link to="/"><h2>Go to Posts</h2></Link>);
         }
         return(
-            <div>
-                <h2>Title:</h2> <h4>{this.props.post.title}</h4>
-                <h2>Body:</h2> <h4>{this.props.post.body}</h4>
-                <h2>ID:</h2> <h4>{this.props.post.id}</h4>
-                
+            <div className="card text-white bg-dark mb-3" >
+                <div className="card-header">Post info</div>
+                    <div className="card-body">
+                        <h2 className="card-title" >{this.props.post.title}</h2>
+                        <h4 className="card-text">{this.props.post.body}</h4>
+                        <h4 className="card-text">{this.props.post.id}</h4>
+                    <Link to="/"><h5>Choose another</h5></Link>
+                    </div>
             </div>
         );
     }
